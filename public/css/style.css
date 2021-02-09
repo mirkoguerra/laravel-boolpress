@@ -1,0 +1,136 @@
+/* INIZIALIZZAZIONE */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* HELPER */
+.border {
+  border: 1px solid black;
+}
+/* HEADER */
+header {
+  z-index: 5;
+  min-width: 1200px;
+  background-color: lightgrey;
+  border-bottom: 1px solid green;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header ul {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+header ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: grey;
+}
+header ul li a:hover {
+  font-weight: bolder;
+}
+header ul li.active a {
+  color: green;
+}
+/* POSTS */
+main.posts, main.watch-post, main.create-post, main.edit-post {
+  background-color: grey;
+  min-height: calc(100vh - 100px);
+  position: relative;
+  top: 100px;
+  min-width: 1200px;
+  padding: 20px;
+}
+main.watch-post {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main.posts div.sub-posts, main.watch-post div.sub-watch-post, main.create-post div.sub-create-post {
+  background-color: lightgrey;
+  padding: 5px;
+}
+main.create-post div.sub-create-post div {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+main.create-post div.sub-create-post div.tags  {
+  flex-direction: row;
+  justify-content: space-between;
+}
+main.create-post div.sub-create-post div.button {
+  align-items: center;
+}
+main.create-post div.sub-create-post div input, main.create-post div.sub-create-post div textarea {
+  outline: none !important;
+}
+main.watch-post div.sub-watch-post {
+  min-height: calc(100vh - 150px);
+  width: 90%;
+}
+main.posts div.sub-posts section.post {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid grey;
+}
+main.posts div.sub-posts section.post div.left {
+  padding: 5px;
+  width: 70%;
+}
+main.posts div.sub-posts section.post div.right {
+  font-family: Arial;
+  padding: 5px;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+main.posts div.sub-posts section.post div.right a {
+  font-size: 16px;
+  text-decoration: none;
+  color: grey;
+}
+main.posts div.sub-posts section.post div.right a:hover, main.posts div.sub-posts section.post div.right form button:hover {
+  color: green;
+  cursor: pointer;
+}
+main.posts div.sub-posts section.post div.right form button {
+  font-size: 16px;
+  color: grey;
+  background-color: lightgrey;
+  border: none;
+}
+main.posts div.sub-posts div.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+main.posts div.sub-posts div.pagination ul {
+  width: 150px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main.posts div.sub-posts div.pagination ul li {
+  font-size: 30px;
+}
+main.posts div.sub-posts div.pagination ul li a {
+  text-decoration: none;
+  color: grey;
+}
+main.posts div.sub-posts div.pagination ul li span {
+  color: green;
+}

@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/free-zone/hello', 'TestController@guest');
 
 Route::get('/restricted-zone/hello', 'TestController@logged')->middleware('auth');
+
+Route::resource('/posts', 'PostsController');

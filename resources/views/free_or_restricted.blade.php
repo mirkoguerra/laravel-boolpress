@@ -1,5 +1,5 @@
 @if(isset($user))
-<p>Ciao {{$user->name}}</p>
+<p>Ciao utente {{$user->name}}</p>
 @else
-<p>Non sei registrato!</p>
+<p>Ciao utente</p>
 @endif
