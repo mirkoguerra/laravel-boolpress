@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Requests\EditCreateFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -45,7 +46,13 @@ class PostsController extends Controller
       // per permettere il ciclo su $tags nella view
       $tags = Tag::all();
 
-      return view('create_post', compact(['categories', 'tags']));
+      if (Auth::check()) {
+        $user = Auth::user();
+        return view('create_post', compact(['categories', 'tags', 'user']));
+      } else {
+        return view('create_post', compact(['categories', 'tags']));
+      }
+
     }
 
     /**
@@ -54,19 +61,20 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EditCreateFormRequest $request)
     {
-      // da cambiare quando validerò
+      $validated = $request->validated();
+
       $data = $request->all();
 
       $newPost = new Post();
       $newPostInformation = new PostInformation();
 
-      $newPost->title = $data['title'];
-      $newPost->author = $data['author'];
+      $newPost->title = $validated['title'];
+      $newPost->author = $validated['author'];
       $newPost->category_id = $data['category_id'];
 
-      $newPostInformation->description = $data['description'];
+      $newPostInformation->description = $validated['description'];
       // dovrei crearmi una funzione per generare uno slug sensato, ma visto che ho generato randomicamente i miei dati per il db, non è indispensabile in questo momento
       $newPostInformation->slug = 'non-sono-uno-slug-vuoto';
 
@@ -93,7 +101,13 @@ class PostsController extends Controller
     {
       $post = Post::find($id);
 
-      return view('watch_post', compact('post'));
+      if (Auth::check()) {
+        $user = Auth::user();
+        return view('watch_post', compact(['post', 'user']));
+      } else {
+        return view('watch_post', compact('post'));
+      }
+
     }
 
     /**
@@ -110,7 +124,13 @@ class PostsController extends Controller
       // per permettere il ciclo su $tags nella view
       $tags = Tag::all();
 
-      return view('edit_post', compact(['post', 'categories', 'tags']));
+      if (Auth::check()) {
+        $user = Auth::user();
+        return view('edit_post', compact(['post', 'categories', 'tags', 'user']));
+      } else {
+        return view('edit_post', compact(['post', 'categories', 'tags']));
+      }
+
     }
 
     /**
@@ -120,22 +140,23 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditCreateFormRequest $request, $id)
     {
-      // da cambiare quando validerò
+      $validated = $request->validated();
+
       $data = $request->all();
 
       $oldPost = Post::find($id);
 
       $oldPost->postToTag()->detach();
 
-      $oldPost->title = $data['title'];
-      $oldPost->author = $data['author'];
+      $oldPost->title = $validated['title'];
+      $oldPost->author = $validated['author'];
       $oldPost->category_id = $data['category_id'];
 
       $oldPost->save();
 
-      $oldPost->postToPostInformation->description = $data['description'];
+      $oldPost->postToPostInformation->description = $validated['description'];
 
       $oldPost->postToPostInformation->save();
 

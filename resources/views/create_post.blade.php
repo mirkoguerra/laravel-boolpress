@@ -9,18 +9,23 @@
 
       <div class="">
         <label for="title">Titolo:</label>
-        <input autocomplete="off" id="tite" type="text" name="title" value="">
+        <input class="@error('title') red @enderror" autocomplete="off" id="tite" type="text" name="title" value="">
+        @error('title')
+        <p>{{ $message }}</p>
+        @enderror
       </div>
 
       <div class="">
         <label for="author">Autore:</label>
-        <input autocomplete="off" id="author" type="text" name="author" value="">
+        <input class="@error('author') red @enderror" autocomplete="off" id="author" type="text" name="author" value="">
+        @error('author')
+        <p>{{ $message }}</p>
+        @enderror
       </div>
 
       <div class="">
         <label for="categories">Categorie:</label>
         <select id="categories" class="" name="category_id">
-          <option selected>---</option>
           @foreach ($categories as $category)
           <option value="{{ $category->id }}">{{ $category->title }}</option>
           @endforeach
@@ -29,7 +34,10 @@
 
       <div class="">
         <label for="description">Descrizione:</label>
-        <textarea iautocomplete="off" id="description" name="description" rows="8" cols="80"></textarea>
+        <textarea class="@error('description') red @enderror" autocomplete="off" id="description" name="description" rows="8" cols="80"></textarea>
+        @error('description')
+        <p>{{ $message }}</p>
+        @enderror
       </div>
 
       <div class="tags">

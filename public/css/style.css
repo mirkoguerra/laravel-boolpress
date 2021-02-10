@@ -72,8 +72,15 @@ main.create-post div.sub-create-post div.tags  {
 main.create-post div.sub-create-post div.button {
   align-items: center;
 }
-main.create-post div.sub-create-post div input, main.create-post div.sub-create-post div textarea {
+main.create-post div.sub-create-post div input, main.create-post div.sub-create-post div textarea, main.create-post div.sub-create-post div select {
   outline: none !important;
+  border: none;
+}
+main.create-post div.sub-create-post div input.red, main.create-post div.sub-create-post div textarea.red {
+  border: 2px solid red;
+}
+main.create-post div.sub-create-post div p {
+  color: red;
 }
 main.watch-post div.sub-watch-post {
   min-height: calc(100vh - 150px);

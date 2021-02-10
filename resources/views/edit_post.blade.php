@@ -9,18 +9,23 @@
 
       <div class="">
         <label for="title">Titolo:</label>
-        <input autocomplete="off" id="tite" type="text" name="title" value="{{ $post->title }}">
+        <input class="@error('title') red @enderror" autocomplete="off" id="tite" type="text" name="title" value="{{ $post->title }}">
+        @error('title')
+        <p>{{ $message }}</p>
+        @enderror
       </div>
 
       <div class="">
         <label for="author">Autore:</label>
-        <input autocomplete="off" id="author" type="text" name="author" value="{{ $post->author }}">
+        <input class="@error('author') red @enderror" autocomplete="off" id="author" type="text" name="author" value="{{ $post->author }}">
+        @error('author')
+        <p>{{ $message }}</p>
+        @enderror
       </div>
 
       <div class="">
-        <label for="categories"></label>
+        <label for="categories">Categorie:</label>
         <select id="categories" class="" name="category_id">
-          <option>---</option>
           @foreach ($categories as $category)
           <option {{ $post->postToCategory->id == $category->id ? "selected" : "" }} value="{{ $category->id }}">{{ $category->title }}</option>
           @endforeach
@@ -29,7 +34,10 @@
 
       <div class="">
         <label for="description">Descrizione:</label>
-        <textarea autocomplete="off" id="description" name="description" rows="8" cols="80">{{ $post->postToPostInformation->description }}</textarea>
+        <textarea class="@error('description') red @enderror" autocomplete="off" id="description" name="description" rows="8" cols="80">{{ $post->postToPostInformation->description }}</textarea>
+        @error('description')
+        <p>{{ $message }}</p>
+        @enderror
       </div>
 
       <div class="tags">
