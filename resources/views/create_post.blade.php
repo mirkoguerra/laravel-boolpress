@@ -9,7 +9,7 @@
 
       <div class="">
         <label for="title">Titolo:</label>
-        <input class="@error('title') red @enderror" autocomplete="off" id="tite" type="text" name="title" value="">
+        <input class="@error('title') red @enderror" autocomplete="off" id="tite" type="text" name="title" value="{{old('title')}}">
         @error('title')
         <p>{{ $message }}</p>
         @enderror
@@ -17,7 +17,7 @@
 
       <div class="">
         <label for="author">Autore:</label>
-        <input class="@error('author') red @enderror" autocomplete="off" id="author" type="text" name="author" value="">
+        <input class="@error('author') red @enderror" autocomplete="off" id="author" type="text" name="author" value="{{old('author')}}">
         @error('author')
         <p>{{ $message }}</p>
         @enderror
@@ -34,7 +34,7 @@
 
       <div class="">
         <label for="description">Descrizione:</label>
-        <textarea class="@error('description') red @enderror" autocomplete="off" id="description" name="description" rows="8" cols="80"></textarea>
+        <textarea class="@error('description') red @enderror" autocomplete="off" id="description" name="description" rows="8" cols="80">{{old('desctiption')}}</textarea>
         @error('description')
         <p>{{ $message }}</p>
         @enderror
