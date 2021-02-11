@@ -50,7 +50,8 @@ class PostsController extends Controller
         $user = Auth::user();
         return view('create_post', compact(['categories', 'tags', 'user']));
       } else {
-        return view('create_post', compact(['categories', 'tags']));
+        return redirect()->route('posts.index');
+        // return view('create_post', compact(['categories', 'tags']));
       }
 
     }
@@ -128,7 +129,8 @@ class PostsController extends Controller
         $user = Auth::user();
         return view('edit_post', compact(['post', 'categories', 'tags', 'user']));
       } else {
-        return view('edit_post', compact(['post', 'categories', 'tags']));
+        return redirect()->route('posts.index');
+        // return view('edit_post', compact(['post', 'categories', 'tags']));
       }
 
     }
