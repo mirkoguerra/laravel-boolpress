@@ -10,8 +10,8 @@ class PostInformation extends Model
 
   public function postInformationToPost() {
 
-    return $this->belongsTo('App\Post', 'id', 'post_id');
+    return $this->belongsTo('App\Post', 'post_id', 'id');
 
   }
-  
+
 }
