@@ -1,3 +1,10 @@
+* laravel-boolpress
+## tecnologie
+* PHP (Laravel)
+## descrizione
+Esercizio-studio, volto a comprendere i concetti base di Laravel (Migration, Seed, Factory, Model, View, Route, Controller, Autenticazione, Registrazione Utenti).
+L'esercizio è stato curato quasi esclusivamente dal punto di vista logico, preferendo, in questo caso, una parte grafica essenziale e non impegnativa, così da mantenere il focus sulla parte funzionale.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
